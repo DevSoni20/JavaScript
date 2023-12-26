@@ -58,5 +58,6 @@ const course = {
 
 // course.courseIntructor
 
-const {courseInstructor} = course;
-console.log(typeof courseInstructor);
+const {courseInstructor: ci} = course;
+console.log(courseInstructor);
+
