@@ -7,8 +7,12 @@
 </head>
 <body style="background-color: #212121;">
     <h1 style="color: #ffff;">Hii i am javaScript</h1>
+    <button id="show">SHOW</button>
+    <!-- <img src="avatar" style="display: none; max-width: 100%;"> -->
+    <p id="followers" style="color: #ffff;"></p>
 </body>
 <script>
+    document.getElementById('show').addEventListener('click', function(){
     const requestUrl = 'https://api.github.com/users/devsoni20'
     const xhr = new XMLHttpRequest()
     xhr.open('GET', requestUrl)
@@ -17,10 +21,27 @@
         if(xhr.readyState === 4)
         {
             const data = JSON.parse(this.responseText);
-            console.log(data.followers);
+            // const avatarUrl = (data.avatar_url);
+            const followersCount = data.followers;
+            // const avatarImage = document.getElementById('avatar');
+            // if (avatarImage) 
+            // {
+            //     avatarImage.src = avatarUrl;
+            //     avatarImage.style.display = 'block';
+            // }
+            // else 
+            // {
+            //     console.error('Avatar image element not found.');
+            // }
+            const followersElement = document.getElementById('followers');
+            if(followersElement)
+            {
+                followersElement.textContent = "Followers: " + followersCount;
+            }
         }
     }
-    console.log(xhr.readyState)
+    // console.log(xhr.readyState)
     xhr.send()
+})
 </script>
 </html>
