@@ -5,4 +5,5 @@ accountCity = 'Dehradun';
 // accountId = 2;
 
 console.log(accountId);
+console.log(accountCity);
 console.table({accountId, accountEmail, accountPassword, accountCity});
